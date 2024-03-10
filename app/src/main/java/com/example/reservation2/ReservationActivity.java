@@ -26,14 +26,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
 
-public class KazukiSushiActivity extends AppCompatActivity {
+public class ReservationActivity extends AppCompatActivity {
 
     DatabaseReference mDatabase;
     FirebaseAuth mAuth;
@@ -60,7 +56,7 @@ public class KazukiSushiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kazukisushi);
+        setContentView(R.layout.activity_reservation);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -100,7 +96,7 @@ public class KazukiSushiActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(KazukiSushiActivity.this, RestaurantActivity.class));
+                startActivity(new Intent(ReservationActivity.this, RestaurantActivity.class));
             }
         });
 
@@ -112,15 +108,15 @@ public class KazukiSushiActivity extends AppCompatActivity {
                     if(checkReservation(kazukiSushiNumberInput.getText().toString())){
                         writeNewReservation(generatedReservationId,currentUser.getEmail().toString(),kazukiSushiNameInput.getText().toString()
                                 ,kazukiSushiNumberInput.getText().toString(), dropdownSelectedValue);
-                        Toast.makeText(KazukiSushiActivity.this, "Reservation erfolgreich!",
+                        Toast.makeText(ReservationActivity.this, "Reservation erfolgreich!",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(KazukiSushiActivity.this, RestaurantActivity.class));
+                        startActivity(new Intent(ReservationActivity.this, RestaurantActivity.class));
                     } else {
-                        Toast.makeText(KazukiSushiActivity.this, "Nich mehr genügend plätze für den gewählten Zeitslot",
+                        Toast.makeText(ReservationActivity.this, "Nich mehr genügend plätze für den gewählten Zeitslot",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(KazukiSushiActivity.this, "Alle informationen müssen angegeben werden",
+                    Toast.makeText(ReservationActivity.this, "Alle informationen müssen angegeben werden",
                             Toast.LENGTH_SHORT).show();
                 }
             }

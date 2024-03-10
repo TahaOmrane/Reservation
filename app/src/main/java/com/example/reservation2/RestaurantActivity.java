@@ -1,10 +1,7 @@
 package com.example.reservation2;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -48,7 +44,7 @@ public class RestaurantActivity extends AppCompatActivity {
         kazukiSushiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RestaurantActivity.this, KazukiSushiActivity.class));
+                startActivity(new Intent(RestaurantActivity.this, ReservationActivity.class));
                 choosenRestaurantName = "Kazuki Sushi";
                 databaseAccessName = "kazukiSushi";
             }
@@ -57,7 +53,7 @@ public class RestaurantActivity extends AppCompatActivity {
         luluHummusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RestaurantActivity.this, KazukiSushiActivity.class));
+                startActivity(new Intent(RestaurantActivity.this, ReservationActivity.class));
                 choosenRestaurantName = "Lulu Hummus";
                 databaseAccessName = "luluHummus";
             }
@@ -66,7 +62,7 @@ public class RestaurantActivity extends AppCompatActivity {
          mioBarelloButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RestaurantActivity.this, KazukiSushiActivity.class));
+                startActivity(new Intent(RestaurantActivity.this, ReservationActivity.class));
                 choosenRestaurantName = "Mio Barello";
                 databaseAccessName = "mioBarello";
             }
